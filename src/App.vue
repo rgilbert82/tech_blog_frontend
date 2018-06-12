@@ -1,17 +1,31 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div id="app">
+      <HeaderMain />
+    </div>
+
+    <transition name='fade'>
+      <div class='gap'>
+        <router-view></router-view>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderMain from './components/Header/HeaderMain';
 
 export default {
   name: 'app',
+
   components: {
-    HelloWorld
+    HeaderMain
+  },
+
+  data() {
+    return {
+      session: this.$root.$data.session
+    }
   }
 }
 </script>
@@ -24,5 +38,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.fade-enter-active, .fade-leave-active {
+      transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>
