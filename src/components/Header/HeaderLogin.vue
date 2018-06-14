@@ -1,5 +1,5 @@
 <template>
-  <div v-if="session.loggedIn">
+  <div v-if="loggedIn">
     <button v-on:click='googleLogin'>Logout</button>
   </div>
   <div v-else>
@@ -11,15 +11,15 @@
 export default {
   name: 'HeaderLogin',
 
-  data() {
-    return {
-      session: this.$root.$data.session
+  computed: {
+    loggedIn() {
+      return this.$store.state.loggedIn;
     }
   },
 
   methods: {
     googleLogin() {
-      this.session.googleSession();
+      this.$store.dispatch('googleSession');
     }
   }
 }

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HeaderLogin from './HeaderLogin';
+import HeaderLogin from '@/components/Header/HeaderLogin';
 
 export default {
   name: 'HeaderMain',

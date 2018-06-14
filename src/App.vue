@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import HeaderMain from './components/Header/HeaderMain';
+import HeaderMain from '@/components/Header/HeaderMain';
 
 export default {
   name: 'app',
