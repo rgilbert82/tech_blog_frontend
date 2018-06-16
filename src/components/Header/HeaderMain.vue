@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Header</h1>
+    <router-link :to="{ name: 'MainIndex' }"><h1>Tech Blog</h1></router-link>
     <HeaderLogin />
   </div>
 </template>

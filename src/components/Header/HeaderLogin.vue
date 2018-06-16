@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import googleOauth from '../../services/google/googleOauth';
+
 export default {
   name: 'HeaderLogin',
 
@@ -19,7 +21,8 @@ export default {
 
   methods: {
     googleLogin() {
-      this.$store.dispatch('googleSession');
+      const oauth = new googleOauth(this.$store);
+      oauth.googleSession();
     }
   }
 }

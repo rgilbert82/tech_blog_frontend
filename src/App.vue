@@ -20,12 +20,6 @@ export default {
 
   components: {
     HeaderMain
-  },
-
-  data() {
-    return {
-      session: this.$root.$data.session
-    }
   }
 }
 </script>
