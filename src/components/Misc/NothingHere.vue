@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Nothing Here</p>
+    <p>Oops! Looks like there's nothing Here</p>
   </div>
 </template>
 

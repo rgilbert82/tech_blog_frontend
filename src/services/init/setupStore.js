@@ -15,33 +15,34 @@ export default () => {
         state.message = message;
       },
 
-      logout(state) {
-        state.currentUser = {};
-        state.loggedIn    = false;
-      },
-
       login(state, user) {
         state.currentUser = user;
         state.loggedIn    = true;
+        state.admin       = !!user.admin;
+      },
+
+      logout(state) {
+        state.currentUser = {};
+        state.loggedIn    = false;
+        state.admin       = false;
       }
     },
 
     actions: {
-      loginApp({ dispatch, commit }, user) {
+      loginApp({ commit }, user) {
         const userObj = {
           id:       user.user.Eea,
           name:     user.user.ig,
           email:    user.user.U3,
-          imageUrl: user.user.Paa
+          image_url: user.user.Paa
         };
-
-        commit('login', userObj);
 
         createUserAPI(userObj)
           .then((data) => {
+            commit('login', data);
             console.log(data);
-          }).catch((err) => {
-            console.log(err);
+          }).catch(() => {
+            commit('login', userObj);
           });
       }
     }

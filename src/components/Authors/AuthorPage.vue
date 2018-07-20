@@ -52,7 +52,6 @@
           .then((data) => {
             this.author = data;
             this.pageLoaded = true;
-            console.log(this.author);
           }).catch(() => {
             this.badRoute   = true;
             this.pageLoaded = true;

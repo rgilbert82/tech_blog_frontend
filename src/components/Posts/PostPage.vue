@@ -36,17 +36,23 @@
     },
 
     created: function() {
-      const slug = this.$route.params.slug;
+      this.fetchPost();
+    },
 
-      return getPostAPI(slug)
-        .then((data) => {
-          this.post = data;
-          this.pageLoaded = true;
-        }).catch(() => {
-          this.badRoute   = true;
-          this.pageLoaded = true;
-          this.$store.commit('setMessage', 'There was an error loading this page.');
-        });
+    methods: {
+      fetchPost() {
+        const slug = this.$route.params.slug;
+
+        return getPostAPI(slug)
+          .then((data) => {
+            this.post = data;
+            this.pageLoaded = true;
+          }).catch(() => {
+            this.badRoute   = true;
+            this.pageLoaded = true;
+            this.$store.commit('setMessage', 'There was an error loading this page.');
+          });
+      }
     }
   }
 </script>
