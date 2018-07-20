@@ -40,7 +40,6 @@ export default () => {
         createUserAPI(userObj)
           .then((data) => {
             commit('login', data);
-            console.log(data);
           }).catch(() => {
             commit('login', userObj);
           });

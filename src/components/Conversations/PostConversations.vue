@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>Comments</h2>
+  <div id="postConversations">
+    <h2>Responses</h2>
     <template v-if="!pageLoaded">
       <CommentsLoading />
     </template>
@@ -77,3 +77,17 @@
     }
   }
 </script>
+
+<style>
+  #postConversations {
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  #postConversations h2 {
+    color: #444;
+    font-size: 16px;
+    margin: 0 0 30px 0;
+  }
+</style>

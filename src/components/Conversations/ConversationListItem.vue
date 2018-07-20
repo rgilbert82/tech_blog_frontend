@@ -1,6 +1,6 @@
 <template>
-  <div v-if="!!dataLoaded">
-    <router-link :to="{ name: 'ConversationPage', params: { slug: post.slug, id: conversation.id } }">
+  <div class="convListItem" v-if="!!dataLoaded">
+    <router-link class="convListItemLink" :to="{ name: 'ConversationPage', params: { slug: post.slug, id: conversation.id } }">
       <CommentsList v-bind:comments="comments" />
     </router-link>
   </div>
@@ -46,3 +46,18 @@
     }
   }
 </script>
+
+<style>
+  .convListItem {
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin: 0 0 20px 0;
+    box-shadow: 0 1px 1px #ccc;
+  }
+
+  .convListItem .convListItemLink:hover {
+    text-decoration: none;
+  }
+</style>

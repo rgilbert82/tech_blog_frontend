@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>All Posts</h2>
+  <div id="mainPage">
+    <h2 id="mainPageHeader">Recent Posts</h2>
 
     <template v-if="noPosts">
       <PageLoading />
@@ -52,3 +52,16 @@
     }
   }
 </script>
+
+<style>
+  #mainPage {
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  #mainPage h2#mainPageHeader {
+    color: #444;
+    font-size: 22px;
+    margin: 0 0 30px 0;
+  }
+</style>

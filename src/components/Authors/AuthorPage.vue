@@ -7,7 +7,7 @@
       <NothingHere />
     </template>
     <template v-else>
-      <div>
+      <div id="authorMain">
         <AuthorHeader v-bind:author="author" />
         <AuthorPosts  v-bind:author="author" />
       </div>
@@ -61,3 +61,11 @@
     }
   }
 </script>
+
+<style>
+  #authorMain {
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+  }
+</style>

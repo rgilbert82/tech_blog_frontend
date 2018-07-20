@@ -7,8 +7,10 @@ import setupStore   from './services/init/setupStore';
 import setupRouter  from './services/init/setupRouter';
 import googleOauth  from './services/google/googleOauth';
 import BootstrapVue from 'bootstrap-vue';
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import './assets/stylesheets/style.css';
 
 dotenv.config();
 

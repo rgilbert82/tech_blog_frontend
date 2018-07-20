@@ -1,9 +1,9 @@
 <template>
   <div>
     <template v-if="!!isLoggedIn">
-      <b-form v-on:submit.prevent="createConversation">
+      <b-form id="newConversationForm" v-on:submit.prevent="createConversation">
         <b-form-group>
-          <b-form-textarea v-model='comment.body' placeholder='Create a comment' rows="2" />
+          <b-form-textarea id="formBody" v-model='comment.body' placeholder='write a response...' rows="2" />
         </b-form-group>
         <b-form-group>
           <b-button type="submit" size="sm" variant="success">Submit</b-button>
@@ -11,7 +11,7 @@
       </b-form>
     </template>
     <template v-else>
-      <p>You must be logged in to comment</p>
+      <p class="warning">You must be logged in to comment</p>
     </template>
   </div>
 </template>
@@ -62,3 +62,22 @@
     }
   }
 </script>
+
+<style>
+  #newConversationForm {
+    box-sizing: border-box;
+    margin: 0 0 40px 0;
+  }
+
+  #formBody {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px #ccc;
+    resize: none;
+  }
+
+  .warning {
+    color: #DF1E1E;
+    margin: 20px 0;
+  }
+</style>

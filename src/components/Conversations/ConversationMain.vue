@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div id="conversationMain">
     <ConversationHeader v-bind:post="post" />
     <div>
       <NewCommentForm v-bind:conversation="conversation" />
-      <CommentsList v-bind:comments="commentsList" />
+      <div id="conversationComments">
+        <CommentsList v-bind:comments="commentsList" />
+      </div>
     </div>
   </div>
 </template>
@@ -47,3 +49,20 @@
     }
   }
 </script>
+
+<style>
+  #conversationMain {
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+  }
+
+  #conversationComments {
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin: 0;
+    box-shadow: 0 1px 1px #ccc;
+  }
+</style>

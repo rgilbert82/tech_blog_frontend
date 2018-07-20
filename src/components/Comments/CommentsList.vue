@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="commentsList">
     <li v-for="comment in comments" :key="comment.id">
       <CommentListItem v-bind:comment="comment" />
     </li>
@@ -21,3 +21,15 @@
     }
   }
 </script>
+
+<style>
+  .commentsList {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .commentsList li {
+    list-style: none;
+  }
+</style>

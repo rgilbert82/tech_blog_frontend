@@ -7,8 +7,10 @@
       <NothingHere />
     </template>
     <template v-else>
-      <UserHeader v-bind:user="user" />
-      <UserComments v-bind:user="user"/>
+      <div id="userMain">
+        <UserHeader v-bind:user="user" />
+        <UserComments v-bind:user="user"/>
+      </div>
     </template>
   </div>
 </template>
@@ -59,3 +61,11 @@
     }
   }
 </script>
+
+<style>
+  #userMain {
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+  }
+</style>

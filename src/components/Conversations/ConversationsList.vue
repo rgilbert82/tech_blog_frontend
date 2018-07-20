@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="conversationsList">
     <li v-for="conversation in conversations" :key="conversation.id">
       <ConversationListItem v-bind:conversation="conversation" v-bind:post="post" />
     </li>
@@ -22,3 +22,14 @@
     }
   }
 </script>
+
+<style>
+.conversationsList {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.conversationsList li {
+  list-style: none;
+}
+</style>

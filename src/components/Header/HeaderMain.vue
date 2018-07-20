@@ -24,6 +24,10 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 header {
   color: #E9FFE2;
   overflow: hidden;
@@ -51,6 +55,7 @@ span.logoBox {
   padding-right: 15px;
   font-weight: bold;
   border-radius: 2px;
+  display: inline-block;
 }
 
 a#headerLinkMain:hover span.logoBox {
@@ -59,6 +64,7 @@ a#headerLinkMain:hover span.logoBox {
 
 span.divider {
   margin: 0 10px;
+  display: inline-block;
 }
 
 .navLeft {

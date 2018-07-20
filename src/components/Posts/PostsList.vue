@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul :class="listClass">
+  <div id="postsListWrapper">
+    <ul id="postsLists">
       <li v-for="post in posts" :key="post.id">
         <PostListItem v-bind:post="post"/>
       </li>
@@ -24,3 +24,33 @@
     }
   }
 </script>
+
+<style>
+  #postsListWrapper {
+    box-sizing: border-box;
+  }
+
+  #postsListWrapper #postsLists {
+    padding: 0;
+    list-style: none;
+    margin-right: -2%;
+  }
+
+  #postsListWrapper #postsLists li {
+    display: inline-block;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    width: 48%;
+  }
+
+  @media(max-width: 800px) {
+    #postsListWrapper #postsLists {
+      margin-right: 0;
+    }
+
+    #postsListWrapper #postsLists li {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+</style>
