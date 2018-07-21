@@ -1,7 +1,7 @@
 <template>
   <ul class="commentsList">
     <li v-for="comment in comments" :key="comment.id">
-      <CommentListItem v-bind:comment="comment" />
+      <CommentListItem v-bind:comment="comment" v-bind:editable="editable"/>
     </li>
   </ul>
 </template>
@@ -17,7 +17,20 @@
     },
 
     props: {
-      comments: Array
+      comments: Array,
+      editable: Boolean
+    },
+
+    data() {
+      return {
+        commentsData: this.comments
+      }
+    },
+
+    methods: {
+      deleteComment(commentId) {
+        this.$parent.deleteComment(commentId);
+      }
     }
   }
 </script>

@@ -15,6 +15,10 @@
         </div>
       </transition>
     </div>
+
+    <footer>
+      <p>© TechBlog 2018</p>
+    </footer>
   </div>
 </template>
 

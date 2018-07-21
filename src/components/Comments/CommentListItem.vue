@@ -1,11 +1,15 @@
 <template>
   <div class="commentListItem">
+    <a class="commentDeleteLink" v-if="currentUserComment" v-on:click.prevent="deleteComment" href="">
+      Delete
+    </a>
+
     <div class="commentListItemHeader">
       <div class="commentUserImage">
         <img v-bind:src="comment.user_avatar" alt="user image" />
       </div>
       <div class="commentUserDetails">
-        <router-link :to="{ name: 'UserPage', params: { id: comment.user_id }}">
+        <router-link class="commentUserLink" :to="{ name: 'UserPage', params: { id: comment.user_id }}">
           <h3>{{comment.username}}</h3>
         </router-link>
         <small>{{dateString}}</small>
@@ -19,13 +23,26 @@
 </template>
 
 <script>
+  import deleteCommentAPI from '../../services/api/comments/deleteCommentAPI.js';
   import formatDate from '../../services/misc/formatDate.js';
 
   export default {
     name: 'CommentListItem',
 
     props: {
-      comment: Object
+      comment: Object,
+      editable: Boolean
+    },
+
+    methods: {
+      deleteComment() {
+        return deleteCommentAPI(this.comment.id)
+          .then(() => {
+            this.$parent.deleteComment(this.comment.id);
+          }).catch(() => {
+            this.$store.commit('setMessage', 'There was an error deleting the comment.');
+          });
+      }
     },
 
     computed: {
@@ -35,6 +52,10 @@
 
       getParagraphs() {
         return this.comment.body.split('\n').filter((par) => { return !!par; });
+      },
+
+      currentUserComment() {
+        return !!this.editable && this.$store.state.loggedIn && (this.$store.state.admin || this.$store.state.currentUser.id === this.comment.user_id);
       }
     }
   }
@@ -42,6 +63,7 @@
 
 <style>
   .commentListItem {
+    position: relative;
     box-sizing: border-box;
     padding: 15px;
     border-bottom: 1px solid #bbb;
@@ -75,6 +97,7 @@
   .commentListItemHeader {
     position: relative;
     margin-bottom: 20px;
+    padding-right: 50px;
   }
 
   .commentUserImage {
@@ -90,5 +113,13 @@
 
   .commentUserDetails {
     padding-left: 50px;
+  }
+
+  .commentDeleteLink {
+    position: absolute;
+    line-height: 20px;
+    top: 5px;
+    right: 8px;
+    font-size: 14px;
   }
 </style>

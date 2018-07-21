@@ -4,7 +4,7 @@
     <div>
       <NewCommentForm v-bind:conversation="conversation" />
       <div id="conversationComments">
-        <CommentsList v-bind:comments="commentsList" />
+        <CommentsList v-bind:comments="commentsList" v-bind:editable="true" />
       </div>
     </div>
   </div>
@@ -41,10 +41,16 @@
       createComment(commentObj) {
         return createCommentAPI(commentObj)
           .then((data) => {
-            this.commentsList = [...this.comments, data];
+            this.commentsList = [...this.commentsList, data];
           }).catch(() => {
             this.$store.commit('setMessage', 'There was an error creating the comment.');
           });
+      },
+
+      deleteComment(commentId) {
+        this.commentsList = this.commentsList.filter((comment) => {
+          return comment.id !== commentId;
+        });
       }
     }
   }
