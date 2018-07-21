@@ -5,7 +5,7 @@
     </template>
     <template v-else>
       <div>
-        <p>Admin privileges required.</p>
+        <p class="warning">Admin privileges required.</p>
       </div>
     </template>
   </div>

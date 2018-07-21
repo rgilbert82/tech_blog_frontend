@@ -76,8 +76,4 @@
     resize: none;
   }
 
-  .warning {
-    color: #DF1E1E;
-    margin: 20px 0;
-  }
 </style>
