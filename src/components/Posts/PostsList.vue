@@ -41,6 +41,7 @@
     margin-right: 2%;
     margin-bottom: 20px;
     width: 48%;
+    vertical-align: top;
   }
 
   @media(max-width: 800px) {

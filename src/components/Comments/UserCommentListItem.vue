@@ -11,7 +11,9 @@
     </div>
 
     <div class="userCommentBody">
-      <p>{{comment.body}}</p>
+      <p v-for="par in getParagraphs">
+        {{ par }}
+      </p>
     </div>
   </div>
 </template>
@@ -29,6 +31,10 @@
     computed: {
       dateString() {
         return formatDate(this.comment.created_at);
+      },
+
+      getParagraphs() {
+        return this.comment.body.split('\n').filter((par) => { return !!par; });
       }
     }
   }
@@ -77,5 +83,9 @@
   font-size: 18px;
   font-family: 'Amiri', serif;
   margin: 0;
+}
+
+.userCommentBody p + p {
+  margin-top: 15px;
 }
 </style>

@@ -20,7 +20,9 @@
     </div>
 
     <div id="postMainBody">
-      <p>{{ post.body }}</p>
+      <p v-for="par in getParagraphs">
+        {{ par }}
+      </p>
     </div>
 
     <PostConversations v-bind:post="post"/>
@@ -45,6 +47,10 @@
     computed: {
       dateString() {
         return formatDate(this.post.created_at);
+      },
+
+      getParagraphs() {
+        return this.post.body.split('\n').filter((par) => { return !!par; });
       }
     }
   }

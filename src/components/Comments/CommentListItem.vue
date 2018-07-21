@@ -12,7 +12,9 @@
       </div>
     </div>
 
-    <p>{{comment.body}}</p>
+    <p v-for="par in getParagraphs">
+      {{ par }}
+    </p>
   </div>
 </template>
 
@@ -29,6 +31,10 @@
     computed: {
       dateString() {
         return formatDate(this.comment.created_at);
+      },
+
+      getParagraphs() {
+        return this.comment.body.split('\n').filter((par) => { return !!par; });
       }
     }
   }
@@ -60,6 +66,10 @@
     font-size: 18px;
     font-family: 'Amiri', serif;
     margin: 0;
+  }
+
+  .commentListItem p + p {
+    margin-top: 15px;
   }
 
   .commentListItemHeader {
