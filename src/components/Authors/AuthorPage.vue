@@ -65,7 +65,6 @@
 <style>
   #authorMain {
     box-sizing: border-box;
-    max-width: 800px;
     margin: 0 auto 40px auto;
   }
 </style>

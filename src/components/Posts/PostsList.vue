@@ -33,24 +33,23 @@
   #postsListWrapper #postsLists {
     padding: 0;
     list-style: none;
-    margin-right: -2%;
+    column-count: 2;
+    column-gap: 20px;
   }
 
   #postsListWrapper #postsLists li {
-    display: inline-block;
-    margin-right: 2%;
+    break-inside: avoid;
     margin-bottom: 20px;
-    width: 48%;
     vertical-align: top;
   }
 
   @media(max-width: 800px) {
     #postsListWrapper #postsLists {
-      margin-right: 0;
+      column-count: 1;
+      column-gap: 0;
     }
 
     #postsListWrapper #postsLists li {
-      margin-right: 0;
       width: 100%;
     }
   }
