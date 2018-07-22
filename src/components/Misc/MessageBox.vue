@@ -1,6 +1,6 @@
 <template>
   <b-alert class="messageBox" show variant="danger">
-    <p>DANGER</p>
+    <p>{{ message }}</p>
     <a class="closeWindowButton" v-on:click.prevent="closeWindow">&#xd7;</a>
   </b-alert>
 </template>
@@ -13,6 +13,12 @@
 
     components: {
       bAlert
+    },
+
+    data() {
+      return {
+        message: this.$store.state.message
+      }
     },
 
     methods: {
