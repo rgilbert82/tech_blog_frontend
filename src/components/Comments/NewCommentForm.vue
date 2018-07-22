@@ -6,7 +6,7 @@
           <b-form-textarea id="formBody" v-model='comment.body' placeholder='add to this conversation...' rows="2"/>
         </b-form-group>
         <b-form-group>
-          <b-button type="submit" size="sm" variant="success">Submit</b-button>
+          <b-button :disabled="!validForm" type="submit" size="sm" variant="success">Submit</b-button>
         </b-form-group>
       </b-form>
     </template>
@@ -45,6 +45,10 @@
     computed: {
       isLoggedIn() {
         return this.$store.state.loggedIn;
+      },
+
+      validForm() {
+        return this.comment.body && this.comment.body.length > 0;
       }
     },
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="convListItem" v-if="!!dataLoaded">
+  <div class="convListItem" v-if="validConversation">
     <router-link class="convListItemLink" :to="{ name: 'ConversationPage', params: { slug: post.slug, id: conversation.id } }">
       <CommentsList v-bind:comments="comments" />
     </router-link>
@@ -31,6 +31,12 @@
 
     created: function() {
       this.fetchComments();
+    },
+
+    computed: {
+      validConversation() {
+        return !!this.dataLoaded && !!this.comments.length;
+      }
     },
 
     methods: {
