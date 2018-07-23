@@ -5,8 +5,11 @@
       <router-link id="conversationHeaderPostLink" :to="{ name: 'PostPage', params: { slug: post.slug } }"><h2>{{ post.description }}</h2></router-link>
     </div>
     <div id="conversationHeaderAuthor">
-      <div id="conversationHeaderAuthorImage">
+      <div v-if="!!post.user_avatar" id="conversationHeaderAuthorImage">
         <img v-bind:src="post.user_avatar" alt="author image" />
+      </div>
+      <div v-else id="conversationHeaderAuthorImage" class="conversationUserIcon">
+        <i class="material-icons">person</i>
       </div>
       <div id="conversationHeaderAuthorDetails">
         <h4><span>by</span> <router-link id="conversationHeaderAuthorLink" :to="{ name: 'AuthorPage', params: { id: post.user_id } }">{{ post.username }}</router-link></h4>
@@ -69,6 +72,18 @@
   #conversationHeaderAuthorImage img {
     width: 60px;
     border-radius: 30px;
+  }
+
+  .conversationUserIcon {
+    background-color: #aaa;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+  }
+
+  .conversationUserIcon i.material-icons {
+    font-size: 60px;
+    color: #fff;
   }
 
   #conversationHeaderAuthorDetails {
