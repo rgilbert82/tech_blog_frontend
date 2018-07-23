@@ -5,8 +5,11 @@
     </a>
 
     <div class="commentListItemHeader">
-      <div class="commentUserImage">
+      <div v-if="!!comment.user_avatar" class="commentUserImage">
         <img v-bind:src="comment.user_avatar" alt="user image" />
+      </div>
+      <div v-else class="commentUserImage userCommentIcon">
+        <i class="material-icons">person</i>
       </div>
       <div class="commentUserDetails">
         <router-link class="commentUserLink" :to="{ name: 'UserPage', params: { id: comment.user_id }}">
@@ -109,6 +112,18 @@
   .commentUserImage img {
     width: 40px;
     border-radius: 20px;
+  }
+
+  .userCommentIcon {
+    background-color: #aaa;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .userCommentIcon i.material-icons {
+    font-size: 40px;
+    color: #fff;
   }
 
   .commentUserDetails {

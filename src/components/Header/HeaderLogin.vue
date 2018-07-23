@@ -1,6 +1,9 @@
 <template>
   <div class="loginButton" v-if="loggedIn">
-    <img v-bind:src="avatar" />
+    <img v-bind:src="avatar" v-if="!!avatar" />
+    <div class="headerUserIcon" v-else>
+      <i class="material-icons">person</i>
+    </div>
     <b-button id="headerButton"  v-on:click='googleLogin'>Logout</b-button>
   </div>
   <div class="loginButton" v-else>
@@ -56,5 +59,20 @@ export default {
     margin-right: 15px;
     height: 50px;
     border-radius: 25px;
+  }
+
+  .headerUserIcon {
+    background-color: #aaa;
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .headerUserIcon i.material-icons {
+    font-size: 50px;
+    color: #fff;
   }
 </style>

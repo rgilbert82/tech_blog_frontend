@@ -1,7 +1,10 @@
 <template>
   <div id="userHeader">
-    <div id="userImage">
+    <div v-if="!!user.image_url" id="userImage">
       <img v-bind:src="user.image_url" alt="user image" />
+    </div>
+    <div v-else id="userImage" class="userProfileIcon">
+      <i class="material-icons">person</i>
     </div>
     <div id="userDetails">
       <h2>{{ user.name }}</h2>
@@ -34,6 +37,18 @@
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.userProfileIcon {
+  background-color: #aaa;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+}
+
+.userProfileIcon i.material-icons {
+  font-size: 80px;
+  color: #fff;
 }
 
 #userImage img {

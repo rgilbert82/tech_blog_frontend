@@ -1,7 +1,10 @@
 <template>
   <div id="authorHeader">
-    <div id="authorImage">
+    <div v-if="author.image_url" id="authorImage">
       <img v-bind:src="author.image_url" />
+    </div>
+    <div v-else id="authorImage" class="authorProfileIcon">
+      <i class="material-icons">person</i>
     </div>
     <div id="authorDetails">
       <h2>{{ author.name }}</h2>
@@ -40,6 +43,18 @@
 #authorImage img {
   width: 80px;
   border-radius: 40px;
+}
+
+.authorProfileIcon {
+  background-color: #aaa;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+}
+
+.authorProfileIcon i.material-icons {
+  font-size: 80px;
+  color: #fff;
 }
 
 #authorDetails {
