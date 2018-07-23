@@ -1,7 +1,7 @@
 import Vue          from 'vue';
 import Vuex         from 'vuex';
 import VueRouter    from 'vue-router';
-import dotenv       from 'dotenv';
+// import dotenv       from 'dotenv';
 import App          from './components/App/App.vue'
 import setupStore   from './services/init/setupStore';
 import setupRouter  from './services/init/setupRouter';
@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/stylesheets/style.css';
 
-dotenv.config();
+// dotenv.config();
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
