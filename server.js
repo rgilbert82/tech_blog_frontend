@@ -6,6 +6,6 @@ var serveStatic = require('serve-static');
 app = express();
 
 app.use(history());
-app.use(serveStatic(__dirname));
-var port = process.env.PORT || 5000;
+app.use(serveStatic(path.join(__dirname, 'dist')));
+const port = process.env.PORT || 80;
 app.listen(port);
