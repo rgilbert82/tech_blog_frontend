@@ -2,8 +2,11 @@
   <div id="postMain">
     <div id="postMainHeader">
       <div id="postAuthor">
-        <div id="postAuthorImage">
+        <div v-if="!!post.user_avatar" id="postAuthorImage">
           <img v-bind:src="post.user_avatar" alt="author image" />
+        </div>
+        <div v-else id="postAuthorImage" class="postPageUserIcon">
+          <i class="material-icons">person</i>
         </div>
         <div id="postAuthorDetails">
           <h4><span>by</span> <router-link id="postAuthorLink" :to="{ name: 'AuthorPage', params: { id: post.user_id }}">{{post.user_name}}</router-link></h4>
@@ -75,6 +78,18 @@
   #postAuthorImage img {
     width: 60px;
     border-radius: 30px;
+  }
+
+  .postPageUserIcon {
+    background-color: #aaa;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+  }
+
+  .postPageUserIcon i.material-icons {
+    font-size: 60px;
+    color: #fff;
   }
 
   #postAuthorDetails {

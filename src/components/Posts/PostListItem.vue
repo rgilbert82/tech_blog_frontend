@@ -8,7 +8,10 @@
 
     <div class="postListItemHeader">
       <div v-if="hasUser" class="postListItemHeaderImage">
-        <img v-bind:src="post.user_avatar" alt="user image" />
+        <img v-if="!!post.user_avatar" v-bind:src="post.user_avatar" alt="user image" />
+        <div v-else class="postListItemUserIcon">
+          <i class="material-icons">person</i>
+        </div>
       </div>
       <div class="postListItemHeaderDetails" v-bind:class="{ postListItemHeaderDetailsPadded: hasUser }">
         <h3><router-link class="postTitleLink" :to="{ name: 'PostPage', params: { slug: post.slug } }">
@@ -82,6 +85,18 @@
   .postListItemHeaderImage img {
     width: 40px;
     border-radius: 20px;
+  }
+
+  .postListItemUserIcon {
+    background-color: #aaa;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .postListItemUserIcon i.material-icons {
+    font-size: 40px;
+    color: #fff;
   }
 
   .postListItemHeaderDetailsPadded {
